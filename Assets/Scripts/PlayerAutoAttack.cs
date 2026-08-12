@@ -6,6 +6,11 @@ public class PlayerAutoAttack : MonoBehaviour
     [SerializeField] private float attackInterval = 0.5f;
     [SerializeField] private int projectileDamage = 2;
 
+    [SerializeField] private float projectileSizeMultiplier = 1f;
+
+    [Header("Projectile Stats")]
+    [SerializeField] private int projectilePiercing = 0;
+
     [Header("Multishot")]
     [SerializeField] private int projectileCount = 1;
     [SerializeField] private float angleBetweenProjectiles = 15f;
@@ -81,9 +86,12 @@ public class PlayerAutoAttack : MonoBehaviour
                 Quaternion.identity
             );
 
+            projectile.transform.localScale *= projectileSizeMultiplier;
+
             projectile.GetComponent<Projectile>().Initialize(
                 (Vector2)rotatedDirection,
-                projectileDamage
+                projectileDamage,
+                projectilePiercing
             );
         }
     }
@@ -98,7 +106,7 @@ public class PlayerAutoAttack : MonoBehaviour
     {
         attackInterval = Mathf.Max(
             0.1f,
-            attackInterval * 0.75f
+            attackInterval / 1.25f
         );
 
         Debug.Log($"Attack Interval: {attackInterval}");
@@ -112,5 +120,27 @@ public class PlayerAutoAttack : MonoBehaviour
         );
 
         Debug.Log($"Projectile Count: {projectileCount}");
+    }
+
+    public void UpgradePiercing()
+    {
+        projectilePiercing =
+            Mathf.Min(projectilePiercing + 1, 3);
+
+        Debug.Log(
+            $"Projectile Piercing: {projectilePiercing}"
+        );
+    }
+
+    public void UpgradeProjectileSize()
+    {
+        projectileSizeMultiplier = Mathf.Min(
+            projectileSizeMultiplier * 1.2f,
+            2.5f
+        );
+
+        Debug.Log(
+            $"Projectile Size: {projectileSizeMultiplier}"
+        );
     }
 }

@@ -462,8 +462,9 @@ GameObject:
   - component: {fileID: 112324657}
   - component: {fileID: 112324656}
   - component: {fileID: 112324655}
+  - component: {fileID: 112324658}
   m_Layer: 5
-  m_Name: MultishotButton
+  m_Name: UpgradeButtonBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -532,19 +533,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 112324656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1287300695}
-        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
-        m_MethodName: ChooseMultishot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &112324656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,6 +572,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112324653}
   m_CullTransparentMesh: 1
+--- !u!114 &112324658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112324653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b558a5a19f74fd3488d1406f6ecfd16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonHover
+  upgradeUI: {fileID: 1287300695}
+  buttonIndex: 2
 --- !u!1 &347559357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,8 +1219,9 @@ GameObject:
   - component: {fileID: 522103813}
   - component: {fileID: 522103812}
   - component: {fileID: 522103811}
+  - component: {fileID: 522103814}
   m_Layer: 5
-  m_Name: AttackSpeedButton
+  m_Name: UpgradeButtonMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1286,19 +1290,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 522103812}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1287300695}
-        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
-        m_MethodName: ChooseAttackSpeed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &522103812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1337,6 +1329,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522103809}
   m_CullTransparentMesh: 1
+--- !u!114 &522103814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522103809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b558a5a19f74fd3488d1406f6ecfd16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonHover
+  upgradeUI: {fileID: 1287300695}
+  buttonIndex: 1
 --- !u!1 &537710674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,8 +1625,9 @@ GameObject:
   - component: {fileID: 573470332}
   - component: {fileID: 573470331}
   - component: {fileID: 573470330}
+  - component: {fileID: 573470333}
   m_Layer: 5
-  m_Name: DamageButton
+  m_Name: UpgradeButtonTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1689,19 +1696,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573470331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1287300695}
-        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
-        m_MethodName: ChooseDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &573470331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1740,6 +1735,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573470328}
   m_CullTransparentMesh: 1
+--- !u!114 &573470333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573470328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b558a5a19f74fd3488d1406f6ecfd16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonHover
+  upgradeUI: {fileID: 1287300695}
+  buttonIndex: 0
 --- !u!1 &619113089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +1971,11 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 301706266922975232
+    - rid: 301706266922975232
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,7 +2872,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeUI
   playerExperience: {fileID: 1417093539}
   playerAutoAttack: {fileID: 1417093537}
+  playerMovement: {fileID: 1417093535}
   upgradePanel: {fileID: 13087203}
+  upgradeButtons:
+  - {fileID: 573470330}
+  - {fileID: 522103811}
+  - {fileID: 112324655}
+  selectedScale: 1.08
 --- !u!114 &1287300696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2872,7 +2891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cca84924cf98374bb748f11aba26073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SurvivalTimer
-  gameDuration: 30
+  gameDuration: 180
   timerText: {fileID: 619113091}
   victoryPanel: {fileID: 2140586307}
 --- !u!1 &1320533464
@@ -3211,6 +3230,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7222533691817651678, guid: d034ab2d9fb5df1489d711339a1a152d, type: 3}
   attackInterval: 0.5
   projectileDamage: 2
+  projectileSizeMultiplier: 1
+  projectilePiercing: 0
   projectileCount: 1
   angleBetweenProjectiles: 15
 --- !u!114 &1417093538

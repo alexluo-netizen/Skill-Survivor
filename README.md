@@ -3,6 +3,10 @@
 **Skill-Survivor** is a top-down survival shooter prototype built with **Unity** and **C#**.  
 The player must survive against continuously spawning enemies, gain experience, choose upgrades, and stay alive until the survival timer ends.
 
+## Screenshots
+![Gameplay screenshot](screenshots/gameplay1.png)
+![Gameplay screenshot](screenshots/gameplay2.png)
+
 ## Gameplay Loop
 
 1. Enemies continuously spawn and move toward the player.

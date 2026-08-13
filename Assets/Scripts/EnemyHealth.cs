@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject experienceGemPrefab;
     [SerializeField] private int experienceReward = 1;
 
+    [SerializeField] private EnemyType enemyType = EnemyType.Normal;
+
     private int currentHealth;
     private bool isDead;
 
@@ -44,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
 
         isDead = true;
 
+        GameSession.Instance?.RegisterKill(enemyType);
         GameAudio.Instance?.PlayEnemyDeath();
 
         if (experienceGemPrefab != null)

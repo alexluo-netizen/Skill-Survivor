@@ -20,6 +20,12 @@ public class PlayerHealth : MonoBehaviour
         if (isDead)
             return;
 
+        if (GameSession.Instance != null &&
+            !GameSession.Instance.IsRunning)
+        {
+            return;
+        }
+
         CurrentHealth -= damage;
         CurrentHealth = Mathf.Max(CurrentHealth, 0);
 
@@ -45,9 +51,10 @@ public class PlayerHealth : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
         }
 
-        GameAudio.Instance?.PlayGameOver();
-
         Debug.Log("Game Over");
-        Time.timeScale = 0f;
+
+        GameSession.Instance?.TryEndGame(
+            GameResult.GameOver
+        );
     }
 }

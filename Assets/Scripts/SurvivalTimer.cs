@@ -1,12 +1,10 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SurvivalTimer : MonoBehaviour
 {
-    [SerializeField] private float gameDuration = 20f;
+    [SerializeField] private float gameDuration = 180f;
     [SerializeField] private TMP_Text timerText;
-    [SerializeField] private GameObject victoryPanel;
 
     private float remainingTime;
     private bool gameFinished;
@@ -14,13 +12,19 @@ public class SurvivalTimer : MonoBehaviour
     private void Awake()
     {
         remainingTime = gameDuration;
-        victoryPanel.SetActive(false);
+        UpdateTimerText();
     }
 
     private void Update()
     {
         if (gameFinished)
             return;
+
+        if (GameSession.Instance != null &&
+            !GameSession.Instance.IsRunning)
+        {
+            return;
+        }
 
         remainingTime = Mathf.Max(
             0f,
@@ -37,11 +41,14 @@ public class SurvivalTimer : MonoBehaviour
 
     private void UpdateTimerText()
     {
-        int totalSeconds = Mathf.CeilToInt(remainingTime);
+        int totalSeconds =
+            Mathf.CeilToInt(remainingTime);
+
         int minutes = totalSeconds / 60;
         int seconds = totalSeconds % 60;
 
-        timerText.text = $"{minutes:00}:{seconds:00}";
+        timerText.text =
+            $"{minutes:00}:{seconds:00}";
     }
 
     private void WinGame()
@@ -51,17 +58,8 @@ public class SurvivalTimer : MonoBehaviour
 
         gameFinished = true;
 
-        GameAudio.Instance?.PlayVictory();
-
-        victoryPanel.SetActive(true);
-        Time.timeScale = 0f;
-    }
-
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+        GameSession.Instance?.TryEndGame(
+            GameResult.Victory
+        );
     }
 }

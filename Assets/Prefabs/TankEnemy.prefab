@@ -199,6 +199,7 @@ MonoBehaviour:
   maxHealth: 18
   experienceGemPrefab: {fileID: 6104789625441839494, guid: b8fe16d52fc6e6b4fb375079943cb20f, type: 3}
   experienceReward: 3
+  enemyType: 2
 --- !u!114 &4885255020436768796
 MonoBehaviour:
   m_ObjectHideFlags: 0

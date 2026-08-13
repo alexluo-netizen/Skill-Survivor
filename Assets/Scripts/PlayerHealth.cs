@@ -33,6 +33,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (isDead)
+            return;
+
         isDead = true;
 
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
@@ -41,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
         {
             rb.linearVelocity = Vector2.zero;
         }
+
+        GameAudio.Instance?.PlayGameOver();
 
         Debug.Log("Game Over");
         Time.timeScale = 0f;

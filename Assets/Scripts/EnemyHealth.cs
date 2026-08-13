@@ -39,7 +39,12 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        if (isDead)
+            return;
+
         isDead = true;
+
+        GameAudio.Instance?.PlayEnemyDeath();
 
         if (experienceGemPrefab != null)
         {

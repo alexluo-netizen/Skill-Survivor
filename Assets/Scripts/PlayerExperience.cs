@@ -18,6 +18,8 @@ public class PlayerExperience : MonoBehaviour
     {
         CurrentExperience += amount;
 
+        bool leveledUpThisTime = false;
+
         while (CurrentExperience >= ExperienceNeeded)
         {
             int requiredExperience = ExperienceNeeded;
@@ -25,9 +27,16 @@ public class PlayerExperience : MonoBehaviour
             CurrentExperience -= requiredExperience;
             Level++;
 
+            leveledUpThisTime = true;
+
             Debug.Log($"Level Up! Current Level: {Level}");
 
             LeveledUp?.Invoke(Level);
+        }
+
+        if (leveledUpThisTime)
+        {
+            GameAudio.Instance?.PlayLevelUp();
         }
     }
 }

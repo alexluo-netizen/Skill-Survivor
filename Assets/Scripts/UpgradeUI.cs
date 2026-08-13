@@ -212,6 +212,8 @@ public class UpgradeUI : MonoBehaviour
 
         panelIsOpen = false;
 
+        GameAudio.Instance?.PlayUIConfirm();
+
         option.Apply();
         ClosePanel();
     }

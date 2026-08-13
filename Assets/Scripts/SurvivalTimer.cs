@@ -46,7 +46,13 @@ public class SurvivalTimer : MonoBehaviour
 
     private void WinGame()
     {
+        if (gameFinished)
+            return;
+
         gameFinished = true;
+
+        GameAudio.Instance?.PlayVictory();
+
         victoryPanel.SetActive(true);
         Time.timeScale = 0f;
     }

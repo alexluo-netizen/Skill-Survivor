@@ -63,6 +63,8 @@ public class PlayerAutoAttack : MonoBehaviour
 
     private void FireProjectiles(Vector2 centerDirection)
     {
+        GameAudio.Instance?.PlayShoot();
+
         float totalSpread =
             angleBetweenProjectiles * (projectileCount - 1);
 

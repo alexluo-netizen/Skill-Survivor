@@ -9,6 +9,7 @@ public class GameOverUI : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameSession gameSession;
     [SerializeField] private PlayerExperience playerExperience;
+    [SerializeField] private GameStatsUploader gameStatsUploader;
 
     [Header("Result UI")]
     [SerializeField] private GameObject resultPanel;
@@ -63,7 +64,9 @@ public class GameOverUI : MonoBehaviour
     }
 
     private void ShowResult(GameResult result)
-    {
+    {   
+        if (resultShown)
+            return;
         resultShown = true;
 
         resultTitleText.text =
@@ -73,6 +76,24 @@ public class GameOverUI : MonoBehaviour
 
         int totalSeconds =
             Mathf.FloorToInt(gameSession.ElapsedTime);
+
+        if (gameStatsUploader != null)
+        {
+            gameStatsUploader.UploadGameRun(
+                totalSeconds,
+                playerExperience.Level,
+                gameSession.NormalKills,
+                gameSession.FastKills,
+                gameSession.TankKills,
+                result == GameResult.Victory
+            );
+        }
+        else
+        {
+            Debug.LogWarning(
+                "GameStatsUploader is not assigned in GameOverUI."
+            );
+        }    
 
         int minutes = totalSeconds / 60;
         int seconds = totalSeconds % 60;
